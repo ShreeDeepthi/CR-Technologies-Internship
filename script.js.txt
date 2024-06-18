@@ -1,0 +1,21 @@
+const form = document.getElementById('resume-form');
+const previewBtn = document.getElementById('preview-btn');
+const downloadBtn = document.getElementById('download-btn');
+const previewContainer = document.getElementById('preview-container');
+const previewElement = document.getElementById('preview');
+
+previewBtn.addEventListener('click', previewResume);
+downloadBtn.addEventListener('click', downloadResume);
+
+function previewResume() {
+    const formData = new FormData(form);
+    const resumeData = {};
+    for (const [key, value] of formData) {
+        resumeData[key] = value;
+    }
+    const resumeHTML = generateResumeHTML(resumeData);
+    previewElement.innerHTML = resumeHTML;
+    previewContainer.style.display = 'block';
+}
+
+function downloadResume
